@@ -1,17 +1,23 @@
 package us.martink;
 
 import us.martink.Command.CommandAbstraction.Command;
-import us.martink.Command.CommandConcrete.*;
+import us.martink.Command.CommandConcrete.CreateNewPresident;
+import us.martink.Command.CommandConcrete.EndangerPresident;
+import us.martink.Command.CommandConcrete.HireAgentForPresident;
+import us.martink.Command.CommandConcrete.UndoLastCommand;
 import us.martink.Domain.AmericanGov.AmericanGovernment;
+import us.martink.Domain.DomainAbstraction.Agent.Agent;
 import us.martink.Domain.DomainAbstraction.Agent.AgentRepository;
 import us.martink.Domain.DomainAbstraction.IGovernmentFactory;
+import us.martink.Domain.DomainAbstraction.President.President;
 import us.martink.Domain.DomainAbstraction.President.PresidentRepository;
-import us.martink.UI.ConsoleUI.ConsoleFactory;
+import us.martink.Domain.RussianGov.RussianGovernment;
 import us.martink.UI.GUI.GUIFactory;
 import us.martink.UI.UIAbstraction.Controller;
 import us.martink.UI.UIAbstraction.IPresidentView;
 import us.martink.UI.UIAbstraction.UIFactory;
 
+import java.io.Console;
 import java.io.IOException;
 
 public class Main {
@@ -23,7 +29,7 @@ public class Main {
         //2. sukuriame DomainFactory pagal norimą domeno šeimą
         IGovernmentFactory domainFactory = new AmericanGovernment();
 
-        //FirstPartDemo(domainFactory, "Joseph", "Stalin");
+        //firstPartDemo(domainFactory, "Joseph", "Stalin");
 
         //3. sukuriame domeno repozitorius A ir B
         PresidentRepository presidents = new PresidentRepository();
@@ -53,4 +59,33 @@ public class Main {
         //6. paleidžiame kontrolerio įvykių ciklą
         controller.showMenu();
     }
+    private static void firstPartDemo(IGovernmentFactory factory, String presidentFirstName, String presidentLastName)
+    {
+        President president = factory.createPresident(presidentFirstName, presidentLastName);
+
+        Agent agent1 = factory.createAgent();
+        Agent agent2 = factory.createAgent();
+        Agent agent3 = factory.createAgent();
+
+        president.registerObserver(agent1);
+        president.registerObserver(agent2);
+        president.registerObserver(agent3);
+
+        president.endangerMySelf();
+        System.out.println("President endangers. Danger level: " + president.getDangerLevel());
+        president.endangerMySelf();
+        System.out.println("President endangers. Danger level: " + president.getDangerLevel());
+        president.endangerMySelf();
+        System.out.println("President endangers. Danger level: " + president.getDangerLevel());
+        president.endangerMySelf();
+        System.out.println("President endangers. Danger level: " + president.getDangerLevel());
+        president.endangerMySelf();
+        System.out.println("President endangers. Danger level: " + president.getDangerLevel());
+        president.endangerMySelf();
+        System.out.println("President endangers. Danger level: " + president.getDangerLevel());
+        president.endangerMySelf();
+        System.out.println("President endangers. Danger level: " + president.getDangerLevel());
+        president.endangerMySelf();
+    }
+
 }

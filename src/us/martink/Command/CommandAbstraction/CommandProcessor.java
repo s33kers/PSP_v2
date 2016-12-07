@@ -11,7 +11,7 @@ public class CommandProcessor {
 
     public void processCommand(Command command) {
         command.execute();
-        if (!(command instanceof IUndoableCommand)) {
+        if(!(command instanceof IUndoCommand)) {
             commands.push(command);
         }
     }

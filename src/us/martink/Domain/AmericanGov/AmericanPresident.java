@@ -48,7 +48,8 @@ public class AmericanPresident extends President{
 
     @Override
     public void restoreFromMemento(PresidentMemento memento) {
-        //TODO: make private fields, set values
+        setCorruptionLevel(memento.corruptionLevel);
+        setDangerLevel(memento.dangerLevel);
     }
 
     @Override

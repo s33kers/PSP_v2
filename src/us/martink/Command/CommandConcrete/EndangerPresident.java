@@ -15,8 +15,7 @@ import java.util.Stack;
 public class EndangerPresident extends Command implements IUndoableCommand {
     private PresidentIdDialog dialog;
     private PresidentRepository presidents;
-    private Stack<PresidentMemento> mementoes = new Stack<PresidentMemento>();
-    private Stack<Integer> presidentIDs = new Stack<>();
+    private Stack<PresidentMemento> mementoes = new Stack<>();
 
     public EndangerPresident(PresidentIdDialog dialog, PresidentRepository repo) {
         this.dialog = dialog;
@@ -32,7 +31,6 @@ public class EndangerPresident extends Command implements IUndoableCommand {
 
         if (president != null) {
             mementoes.push(president.createMemento());
-            presidentIDs.push(presidentID);
             president.endangerMySelf();
         }
     }
@@ -40,8 +38,9 @@ public class EndangerPresident extends Command implements IUndoableCommand {
     @Override
     public void unExecute() {
         if (mementoes != null) {
-            President president = presidents.getElementByID(presidentIDs.pop());
-            president.restoreFromMemento(mementoes.pop());
+            PresidentMemento presidentMemento = mementoes.pop();
+            President president = presidents.getElementByID(presidentMemento.ID);
+            president.restoreFromMemento(presidentMemento);
         }
 
     }
