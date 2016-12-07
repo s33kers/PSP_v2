@@ -9,26 +9,18 @@ import us.martink.Domain.DomainAbstraction.President.PresidentMemento;
 public class AmericanPresident extends President{
 
     private final int ENDANGERMENT_CAPABILITY = 7;
-    private final int CORRUPTION_CAPABILITY = 1;
 
     public AmericanPresident(String firstName, String lastName) {
         super();
         this.firstName = firstName;
         this.lastName = lastName;
         this.dangerLevel = 0;
-        this.corruptionLevel = 0;
     }
 
     @Override
     public void endangerMySelf() {
         increaseDangerLevel(ENDANGERMENT_CAPABILITY);
     }
-
-    @Override
-    public void actCorrupt() {
-        increaseCorruptionLevel(CORRUPTION_CAPABILITY);
-    }
-
     @Override
     protected void increaseDangerLevel(int increaseBy) {
         dangerLevel += increaseBy;
@@ -41,14 +33,7 @@ public class AmericanPresident extends President{
     }
 
     @Override
-    protected void increaseCorruptionLevel(int increaseBy) {
-        corruptionLevel += increaseBy;
-        notifyObservers();
-    }
-
-    @Override
     public void restoreFromMemento(PresidentMemento memento) {
-        setCorruptionLevel(memento.corruptionLevel);
         setDangerLevel(memento.dangerLevel);
     }
 
@@ -60,16 +45,6 @@ public class AmericanPresident extends President{
     @Override
     public void setID(int ID) {
         this.ID = ID;
-    }
-
-    @Override
-    public int getCorruptionLevel() {
-        return corruptionLevel;
-    }
-
-    @Override
-    public void setCorruptionLevel(int corruptionLevel) {
-        this.corruptionLevel = corruptionLevel;
     }
 
     @Override

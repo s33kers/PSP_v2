@@ -12,10 +12,6 @@ import java.awt.*;
  * Created by tadas.
  */
 public class GUIController extends Controller{
-    @Override
-    public void beginEventLoop() {
-        throw new NotImplementedException();
-    }
 
     @Override
     public void showMenu() {

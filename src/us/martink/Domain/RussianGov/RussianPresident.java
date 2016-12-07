@@ -14,11 +14,6 @@ public class RussianPresident extends President{
     private Map<String, Object> state = new HashMap<>();
 
     @Override
-    public int getCorruptionLevel() {
-        return Integer.parseInt(state.get("CorruptionLevel").toString());
-    }
-
-    @Override
     public int getDangerLevel() {
         return Integer.parseInt(state.get("DangerLevel").toString());
     }
@@ -37,7 +32,6 @@ public class RussianPresident extends President{
         state.put("CorruptionLevel", 0);
         state.put("DangerLevel", 0);
         state.put("EndangermentCapability", 2);
-        state.put("CorruptionCapability", 5);
         state.put("FirstName", firstName);
         state.put("LastName", lastName);
     }
@@ -45,11 +39,6 @@ public class RussianPresident extends President{
     @Override
     public void endangerMySelf() {
         increaseDangerLevel((int)state.get("EndangermentCapability"));
-    }
-
-    @Override
-    public void actCorrupt() {
-        increaseCorruptionLevel(((int)state.get("CorruptionCapability")));
     }
 
     @Override
@@ -70,19 +59,9 @@ public class RussianPresident extends President{
     }
 
     @Override
-    protected void increaseCorruptionLevel(int increaseBy) {
-        int currDanger = (int)state.get("CorruptionLevel");
-        currDanger += increaseBy;
-        state.replace("CorruptionLevel", currDanger);
-
-        notifyObservers();
-    }
-
-    @Override
     public void restoreFromMemento(PresidentMemento memento) {
         state.replace("FirstName", memento.firstName);
         state.replace("LastName", memento.lastName);
-        state.replace("CorruptionLevel", memento.corruptionLevel);
         state.replace("DangerLevel", memento.dangerLevel);
     }
 }

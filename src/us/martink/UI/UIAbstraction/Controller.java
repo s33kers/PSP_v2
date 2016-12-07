@@ -13,8 +13,6 @@ public abstract class Controller {
     private List<Command> commands = new ArrayList<>();
     private CommandProcessor processor = new CommandProcessor();
 
-    public abstract void beginEventLoop();
-
     public abstract void showMenu();
 
     public void addCommand(Command cmd) {

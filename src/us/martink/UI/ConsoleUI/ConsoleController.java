@@ -12,10 +12,6 @@ import java.io.InputStreamReader;
  * Created by tadas.
  */
 public class ConsoleController extends Controller {
-    @Override
-    public void beginEventLoop() {
-        throw new NotImplementedException();
-    }
 
     @Override
     public void showMenu() {

@@ -14,7 +14,6 @@ public abstract class President {
     private static Object LOCK = new Object();
 
     protected int ID;
-    protected int corruptionLevel;
     protected int dangerLevel;
     protected String firstName;
     protected String lastName;
@@ -30,13 +29,10 @@ public abstract class President {
 
     public abstract void endangerMySelf();
 
-    public abstract void actCorrupt();
 
     protected abstract void increaseDangerLevel(int increaseBy);
 
     public abstract void reduceDangerLevel(int reduceBy);
-
-    protected abstract void increaseCorruptionLevel(int increaseBy);
 
     public void registerObserver(IObserver<President> observer) {
         observers.add(observer);
@@ -53,7 +49,7 @@ public abstract class President {
     }
 
     public PresidentMemento createMemento() {
-        return new PresidentMemento(firstName, lastName, dangerLevel, corruptionLevel, ID);
+        return new PresidentMemento(firstName, lastName, dangerLevel, ID);
     }
 
     public abstract void restoreFromMemento(PresidentMemento memento);
@@ -80,14 +76,6 @@ public abstract class President {
 
     public void setID(int ID) {
         this.ID = ID;
-    }
-
-    public int getCorruptionLevel() {
-        return corruptionLevel;
-    }
-
-    public void setCorruptionLevel(int corruptionLevel) {
-        this.corruptionLevel = corruptionLevel;
     }
 
     public int getDangerLevel() {

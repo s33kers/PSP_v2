@@ -9,13 +9,11 @@ public class PresidentMemento {
     public String firstName;
     public String lastName;
     public int dangerLevel;
-    public int corruptionLevel;
 
-    public PresidentMemento(String firstName, String lastName, int dangerLevel, int corruptionLevel, int id) {
+    public PresidentMemento(String firstName, String lastName, int dangerLevel, int id) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dangerLevel = dangerLevel;
-        this.corruptionLevel = corruptionLevel;
         ID = id;
     }
 }
