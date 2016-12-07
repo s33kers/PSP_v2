@@ -6,7 +6,7 @@ import us.martink.Domain.DomainAbstraction.President.President;
 /**
  * Created by tadas.
  */
-//TODO: extends or impl?
+
 public class FBIAgent extends Agent {
 
     private final int AMERICAN_REMOVE_DANGER_CAPACITY = 30;

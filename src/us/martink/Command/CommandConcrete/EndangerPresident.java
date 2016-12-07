@@ -13,14 +13,15 @@ import java.util.Stack;
  * Created by tadas.
  */
 public class EndangerPresident extends Command implements IUndoableCommand {
-    PresidentIdDialog dialog;
-    PresidentRepository presidents;
-    Stack<PresidentMemento> mementoes = new Stack<PresidentMemento>();
-    Stack<Integer> presidentIDs = new Stack<>();
+
+    private PresidentIdDialog dialog;
+    private PresidentRepository presidents;
+    private Stack<PresidentMemento> mementoes = new Stack<PresidentMemento>();
+    private Stack<Integer> presidentIDs = new Stack<>();
 
     public EndangerPresident(PresidentIdDialog dialog, PresidentRepository repo) {
         this.dialog = dialog;
-        presidents = repo;
+        this.presidents = repo;
         setName("Endanger selected president");
     }
 

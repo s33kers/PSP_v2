@@ -13,11 +13,11 @@ public abstract class President {
     private static int COUNT_ID = 1;
     private static Object LOCK = new Object();
 
-    private int ID;
-    private int corruptionLevel;
-    private int dangerLevel;
-    private String firstName;
-    private String lastName;
+    protected int ID;
+    protected int corruptionLevel;
+    protected int dangerLevel;
+    protected String firstName;
+    protected String lastName;
 
     private List<IObserver<President>> observers = new ArrayList<>();
 

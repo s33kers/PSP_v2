@@ -1,10 +1,7 @@
 package us.martink;
 
 import us.martink.Command.CommandAbstraction.Command;
-import us.martink.Command.CommandConcrete.CreateNewPresident;
-import us.martink.Command.CommandConcrete.EndangerPresident;
-import us.martink.Command.CommandConcrete.HireAgentForPresident;
-import us.martink.Command.CommandConcrete.UndoLastCommand;
+import us.martink.Command.CommandConcrete.*;
 import us.martink.Domain.AmericanGov.AmericanGovernment;
 import us.martink.Domain.DomainAbstraction.Agent.AgentRepository;
 import us.martink.Domain.DomainAbstraction.IGovernmentFactory;
@@ -12,15 +9,15 @@ import us.martink.Domain.DomainAbstraction.President.PresidentRepository;
 import us.martink.UI.GUI.GUIFactory;
 import us.martink.UI.UIAbstraction.Controller;
 import us.martink.UI.UIAbstraction.IPresidentView;
+import us.martink.UI.UIAbstraction.UIFactory;
 
-import java.io.Console;
 import java.io.IOException;
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
         //1. sukuriame UIFactory pagal norimą UI šeimą
-        GUIFactory uiFactory = new GUIFactory();
+        UIFactory uiFactory = new GUIFactory();
 
         //2. sukuriame DomainFactory pagal norimą domeno šeimą
         IGovernmentFactory domainFactory = new AmericanGovernment();
@@ -45,7 +42,7 @@ public class Main {
         Command hireAgent = new HireAgentForPresident(uiFactory.createPresidentIdDialog(),
                 presidents, domainFactory, agents);
 
-        Command undo = new UndoLastCommand(controller.Processor);
+        Command undo = new UndoLastCommand(controller.processor);
 
         controller.addCommand(createNewPresident);
         controller.addCommand(endangerPresident);
@@ -54,7 +51,6 @@ public class Main {
 
         //6. paleidžiame kontrolerio įvykių ciklą
         controller.showMenu();
-
 
         System.in.read();
     }

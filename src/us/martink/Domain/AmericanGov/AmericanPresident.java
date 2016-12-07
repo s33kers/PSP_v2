@@ -11,12 +11,6 @@ public class AmericanPresident extends President{
     private final int ENDANGERMENT_CAPABILITY = 7;
     private final int CORRUPTION_CAPABILITY = 1;
 
-    private int ID;
-    private int corruptionLevel;
-    private int dangerLevel;
-    private String firstName;
-    private String lastName;
-
     public AmericanPresident(String firstName, String lastName) {
         super();
         this.firstName = firstName;

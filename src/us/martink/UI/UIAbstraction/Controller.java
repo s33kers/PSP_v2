@@ -11,7 +11,7 @@ import java.util.List;
  */
 public abstract class Controller {
     private List<Command> commands = new ArrayList<>();
-    public CommandProcessor Processor = new CommandProcessor();
+    public CommandProcessor processor = new CommandProcessor();
 
     public abstract void beginEventLoop();
 
@@ -19,5 +19,9 @@ public abstract class Controller {
 
     public void addCommand(Command cmd) {
         commands.add(cmd);
+    }
+
+    public List<Command> getCommands() {
+        return commands;
     }
 }

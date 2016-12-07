@@ -9,21 +9,21 @@ import us.martink.UI.UIAbstraction.*;
 public class GUIFactory implements UIFactory {
     @Override
     public Controller createController() {
-        throw new NotImplementedException();
+        return new GUIController();
     }
 
     @Override
     public INewsView createNewsView() {
-        throw new NotImplementedException();
+        return new GUINewsView();
     }
 
     @Override
     public PresidentIdDialog createPresidentIdDialog() {
-        throw new NotImplementedException();
+        return new GUIPresidentIdDialog();
     }
 
     @Override
     public IPresidentView createPresidentView() {
-        throw new NotImplementedException();
+        return new GUIPresidentView();
     }
 }
