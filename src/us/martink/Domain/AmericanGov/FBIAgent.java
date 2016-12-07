@@ -18,13 +18,13 @@ public class FBIAgent extends Agent {
 
     @Override
     public void saveThePresident(President president) {
-        if(president.getDangerLevel() > 12) {
-            saveThePresident(president);
-        }
+        president.reduceDangerLevel(getRemoveDangerCapacity());
     }
 
     @Override
     public void notify(President president) {
-        president.reduceDangerLevel(getRemoveDangerCapacity());
+        if(president.getDangerLevel() > 12) {
+            saveThePresident(president);
+        }
     }
 }

@@ -18,7 +18,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         //1. sukuriame UIFactory pagal norimą UI šeimą
-        UIFactory uiFactory = new ConsoleFactory();
+        UIFactory uiFactory = new GUIFactory();
 
         //2. sukuriame DomainFactory pagal norimą domeno šeimą
         IGovernmentFactory domainFactory = new AmericanGovernment();
