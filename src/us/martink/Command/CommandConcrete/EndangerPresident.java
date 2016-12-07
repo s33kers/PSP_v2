@@ -13,7 +13,6 @@ import java.util.Stack;
  * Created by tadas.
  */
 public class EndangerPresident extends Command implements IUndoableCommand {
-
     private PresidentIdDialog dialog;
     private PresidentRepository presidents;
     private Stack<PresidentMemento> mementoes = new Stack<PresidentMemento>();

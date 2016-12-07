@@ -15,7 +15,6 @@ public class GUIPresidentIdDialog implements PresidentIdDialog {
 
     @Override
     public int show() {
-
         String outputText = (String)JOptionPane.showInputDialog(
                 null,
                 "Enter president ID",
@@ -26,33 +25,5 @@ public class GUIPresidentIdDialog implements PresidentIdDialog {
         } else {
             return 0;
         }
-       /* JFrame frame = new JFrame("Enter president ID");
-        frame.setSize(new Dimension(400, 200));
-        frame.setResizable(false);
-
-        JPanel panel = new JPanel();
-        panel.setBorder(new EmptyBorder(10, 0, 10, 0));
-        frame.add(panel);
-
-        JTextField textField = new JTextField();
-        textField.setPreferredSize(new Dimension(300, 50));
-        JButton button = new JButton("OK");
-        button.setPreferredSize(new Dimension(400, 50));
-
-
-        button.addActionListener(e -> {
-            outputText = textField.getText();
-            frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
-        });
-
-        panel.add(textField);
-        panel.add(button);
-        frame.setVisible(true);
-
-        if (outputText != null) {
-            return Integer.parseInt(outputText);
-        } else {
-            return 0;
-        }*/
     }
 }

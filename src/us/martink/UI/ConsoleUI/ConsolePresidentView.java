@@ -10,7 +10,10 @@ import us.martink.UI.UIAbstraction.IPresidentView;
 public class ConsolePresidentView implements IPresidentView {
     @Override
     public void notify(President subject) {
-        throw new NotImplementedException();
+         System.out.println("President's danger level\n" +
+                 "ID: " + subject.getID() +
+                 "\nName : " + subject.getFirstName() + " " + subject.getLastName() +
+                 "\nDanger level: " + subject.getDangerLevel());
     }
 
     @Override

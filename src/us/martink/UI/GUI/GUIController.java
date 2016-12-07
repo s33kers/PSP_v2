@@ -34,7 +34,7 @@ public class GUIController extends Controller{
             button.setText(command.getName());
             panel.add(button);
 
-            button.addActionListener(e -> processor.processCommand(command));
+            button.addActionListener(e -> getProcessor().processCommand(command));
         }
         frame.setVisible(true);
 

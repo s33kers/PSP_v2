@@ -11,7 +11,7 @@ import java.util.List;
  */
 public abstract class Controller {
     private List<Command> commands = new ArrayList<>();
-    public CommandProcessor processor = new CommandProcessor();
+    private CommandProcessor processor = new CommandProcessor();
 
     public abstract void beginEventLoop();
 
@@ -23,5 +23,17 @@ public abstract class Controller {
 
     public List<Command> getCommands() {
         return commands;
+    }
+
+    public void setCommands(List<Command> commands) {
+        this.commands = commands;
+    }
+
+    public CommandProcessor getProcessor() {
+        return processor;
+    }
+
+    public void setProcessor(CommandProcessor processor) {
+        this.processor = processor;
     }
 }

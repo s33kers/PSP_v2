@@ -6,6 +6,7 @@ import us.martink.Domain.AmericanGov.AmericanGovernment;
 import us.martink.Domain.DomainAbstraction.Agent.AgentRepository;
 import us.martink.Domain.DomainAbstraction.IGovernmentFactory;
 import us.martink.Domain.DomainAbstraction.President.PresidentRepository;
+import us.martink.UI.ConsoleUI.ConsoleFactory;
 import us.martink.UI.GUI.GUIFactory;
 import us.martink.UI.UIAbstraction.Controller;
 import us.martink.UI.UIAbstraction.IPresidentView;
@@ -17,7 +18,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         //1. sukuriame UIFactory pagal norimą UI šeimą
-        UIFactory uiFactory = new GUIFactory();
+        UIFactory uiFactory = new ConsoleFactory();
 
         //2. sukuriame DomainFactory pagal norimą domeno šeimą
         IGovernmentFactory domainFactory = new AmericanGovernment();
@@ -42,7 +43,7 @@ public class Main {
         Command hireAgent = new HireAgentForPresident(uiFactory.createPresidentIdDialog(),
                 presidents, domainFactory, agents);
 
-        Command undo = new UndoLastCommand(controller.processor);
+        Command undo = new UndoLastCommand(controller.getProcessor());
 
         controller.addCommand(createNewPresident);
         controller.addCommand(endangerPresident);
@@ -51,7 +52,5 @@ public class Main {
 
         //6. paleidžiame kontrolerio įvykių ciklą
         controller.showMenu();
-
-        System.in.read();
     }
 }
