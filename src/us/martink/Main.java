@@ -1,10 +1,7 @@
 package us.martink;
 
 import us.martink.Command.CommandAbstraction.Command;
-import us.martink.Command.CommandConcrete.CreateNewPresident;
-import us.martink.Command.CommandConcrete.EndangerPresident;
-import us.martink.Command.CommandConcrete.HireAgentForPresident;
-import us.martink.Command.CommandConcrete.UndoLastCommand;
+import us.martink.Command.CommandConcrete.*;
 import us.martink.Domain.AmericanGov.AmericanGovernment;
 import us.martink.Domain.DomainAbstraction.Agent.Agent;
 import us.martink.Domain.DomainAbstraction.Agent.AgentRepository;
@@ -49,11 +46,14 @@ public class Main {
         Command hireAgent = new HireAgentForPresident(uiFactory.createPresidentIdDialog(),
                 presidents, domainFactory, agents);
 
+        Command checkPresidents = new CheckPresidents(uiFactory.createNewsView(), presidents);
+
         Command undo = new UndoLastCommand(controller.getProcessor());
 
         controller.addCommand(createNewPresident);
         controller.addCommand(endangerPresident);
         controller.addCommand(hireAgent);
+        controller.addCommand(checkPresidents);
         controller.addCommand(undo);
 
         //6. paleidžiame kontrolerio įvykių ciklą

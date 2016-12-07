@@ -16,4 +16,8 @@ public class PresidentRepository {
     public President getElementByID(int ID) {
         return presidents.stream().filter(a -> a.getID() == ID).findFirst().orElse(null);
     }
+
+    public List<President> getPresidents() {
+        return presidents;
+    }
 }
